@@ -39,9 +39,7 @@ import TermsOfServicePage from "./pages/legal/TermsOfServicePage";
 import SupportPage from "./pages/legal/SupportPage";
 
 function App() {
-  // ==========================================
   // AUTHENTICATION
-  // ==========================================
 
   const [isAuthenticated, setIsAuthenticated] =
     useState(isUserLoggedIn);
@@ -52,9 +50,7 @@ function App() {
   const [authPage, setAuthPage] =
     useState("login");
 
-  // ==========================================
   // MAIN APPLICATION DATA
-  // ==========================================
 
   const [students, setStudents] = useState(() =>
     loadData("students", initialStudents)
@@ -72,9 +68,7 @@ function App() {
     loadData("fees", {})
   );
 
-  // ==========================================
   // NAVIGATION
-  // ==========================================
 
   const [activeTab, setActiveTab] =
     useState("dashboard");
@@ -85,9 +79,7 @@ function App() {
   const [editingStudent, setEditingStudent] =
     useState(null);
 
-  // ==========================================
   // TOAST
-  // ==========================================
 
   const [toastMessage, setToastMessage] =
     useState("");
@@ -100,9 +92,7 @@ function App() {
     }, 3000);
   }, []);
 
-  // ==========================================
   // SAVE DATA
-  // ==========================================
 
   useEffect(() => {
     saveData("students", students);
@@ -120,9 +110,7 @@ function App() {
     saveData("fees", fees);
   }, [fees]);
 
-  // ==========================================
   // AUTH HANDLERS
-  // ==========================================
 
   const handleLogin = (user) => {
     const userName =
@@ -165,9 +153,7 @@ function App() {
     showToast("Logged out successfully!");
   };
 
-  // ==========================================
   // STUDENT HANDLERS
-  // ==========================================
 
   const handleSaveStudent = (studentData) => {
     if (editingStudent) {
@@ -288,9 +274,8 @@ function App() {
     setActiveTab("add-student");
   };
 
-  // ==========================================
+
   // AUTH SCREEN
-  // ==========================================
 
   if (!isAuthenticated) {
     return (
@@ -318,9 +303,7 @@ function App() {
     );
   }
 
-  // ==========================================
   // MAIN APPLICATION
-  // ==========================================
 
   return (
     <div className="app-layout d-flex flex-column min-vh-100 bg-light">
